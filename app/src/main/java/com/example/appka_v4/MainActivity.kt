@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.appka_v4.screens.Details
 import com.example.appka_v4.screens.Home
 import com.example.appka_v4.ui.theme.Appka_v4Theme
 
@@ -27,9 +28,12 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    NavHost(navController = navController, startDestination = navigation.Home.route){
-                        composable(navigation.Home.route){
+                    NavHost(navController = navController, startDestination = Navigation.Home.route){
+                        composable(Navigation.Home.route) {
                             Home(navController)
+                        }
+                        composable(Navigation.Details.route) {
+                            Details(navController)
                         }
                     }
 
