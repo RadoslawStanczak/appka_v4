@@ -1,7 +1,6 @@
 package com.example.appka_v4.ui.theme
 
 import android.app.Activity
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -36,6 +35,15 @@ private val LightColorScheme = lightColorScheme(
     onSurface = Color(0xFF1C1B1F),
     */
 )
+// moja definicja shcematu kolorów
+/*
+private val BetterColorSchemeLight = lightColorScheme(
+    primary = Color(rgb(116, 105, 182)),
+    secondary = Color(rgb(225, 175, 209)),
+    tertiary = Color(rgb(255, 230, 230))
+)
+
+ */
 
 @Composable
 fun Appka_v4Theme(
@@ -45,7 +53,7 @@ fun Appka_v4Theme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+        dynamicColor -> {
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }

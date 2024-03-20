@@ -18,6 +18,7 @@ import com.example.appka_v4.screens.Home
 import com.example.appka_v4.ui.theme.Appka_v4Theme
 
 class MainActivity : ComponentActivity() {
+    private val viewModel: ViewModel by lazy { ViewModel() }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -30,10 +31,10 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = Navigation.Home.route){
                         composable(Navigation.Home.route) {
-                            Home(navController)
+                            Home(navController, viewModel)
                         }
                         composable(Navigation.Details.route) {
-                            Details(navController)
+                            Details(viewModel)
                         }
                     }
 
